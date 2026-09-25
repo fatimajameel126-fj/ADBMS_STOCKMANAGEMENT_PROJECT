@@ -5,7 +5,7 @@
   ASP.NET Core MVC • C# • Entity Framework Core • SQL Server • Bootstrap
 </p>
 
---About the Project
+## About the Project
 ADBMS Stock Management System is a full-stack web application developed to demonstrate how Advanced Database Management System concepts can be applied to a real-world inventory business workflow.
 
 The system provides a centralized platform for managing:
@@ -22,7 +22,7 @@ The system provides a centralized platform for managing:
 
 The application follows the ASP.NET Core MVC architecture and uses Entity Framework Core to communicate with a Microsoft SQL Server database.
 
---Key Features
+ ## Key Features
 
 1. Authentication
 
@@ -72,7 +72,7 @@ Views, stored procedures, functions, triggers, indexes and transactions
 
 Bootstrap-based responsive interface with a clean light-blue theme
 
---Technology Stack
+## Technology Stack
 
 1. Frontend
 HTML5
@@ -98,7 +98,7 @@ T-SQL
 Visual Studio / VS Code
 SQL Server Management Studio (SSMS)
 
---Application Architecture
+## Application Architecture
 
 The project follows the Model–View–Controller (MVC) pattern:
 
@@ -125,9 +125,13 @@ The project follows the Model–View–Controller (MVC) pattern:
                  │  StockManagementDB  │
                  └─────────────────────┘
 
---Pages & Functionalities
+## Screenshots
 
-🏠 Home Page
+Project screenshots are available in the `docs/screenshots/` folder.
+
+# Pages & Functionalities
+
+## Home Page
 
 Controller: HomeController
 
@@ -145,7 +149,7 @@ Provides access to the main system after login
 
 Includes access-denied and error pages
 
-🔐 Authentication
+## Authentication
 
 Controller: AuthController
 
@@ -181,7 +185,7 @@ Ends the authenticated session
 
 Removes the authentication cookie
 
-📊 Admin Dashboard
+## Admin Dashboard
 
 Controller: AdminController
 
@@ -211,7 +215,7 @@ Recent sales
 
 This gives administrators and managers a centralized view of inventory activity.
 
-📦 Product Management
+## Product Management
 
 Controller: ProductsController
 
@@ -255,7 +259,7 @@ Validation rules
 
 Relational mapping through Entity Framework Core
 
-🗂️ Category Management
+# Category Management
 
 Controller: CategoriesController
 
@@ -273,7 +277,7 @@ Store category descriptions
 
 Connect products with categories
 
-🚚 Supplier Management
+## Supplier Management
 
 Controller: SuppliersController
 
@@ -295,7 +299,7 @@ Activate/deactivate suppliers
 
 Suppliers are linked to purchase records through a foreign key relationship.
 
-👥 Customer Management
+## Customer Management
 
 Controller: CustomersController
 
@@ -313,7 +317,7 @@ Store customer name, email and phone
 
 Customers can be associated with sales transactions.
 
-🛒 Purchase Management
+## Purchase Management
 
 Controller: PurchasesController
 
@@ -350,7 +354,7 @@ Increase product stock
 
 Maintain stock transaction history
 
-Purchase Workflow
+--> Purchase Workflow
 
 Supplier
    ↓
@@ -368,7 +372,7 @@ Stock Transaction / Audit History
 
 Purchase creation is wrapped in a database transaction so the operation can be rolled back if an error occurs.
 
-💰 Sales Management
+## Sales Management
 
 Controller: SalesController
 
@@ -404,7 +408,7 @@ Reduce inventory after a sale
 
 Maintain stock movement history
 
-Sales Workflow
+--> Sales Workflow
 
 Customer
    ↓
@@ -422,7 +426,7 @@ Stock OUT
    ↓
 Stock Transaction / Audit History
 
-📈 Reports
+## Reports
 
 Controller: ReportsController
 
@@ -440,7 +444,7 @@ Displays purchases from the recent reporting period and calculates the purchase 
 
 --These reports provide database-driven information for inventory and transaction monitoring.
 
-👨‍💼 Administration
+## Administration
 
 Controller: AdminController
 
@@ -468,7 +472,7 @@ View the user responsible
 
 View activity date/time
 
-📝 Audit Logging
+## Audit Logging
 
 The project contains an AuditService for recording important application activities.
 
@@ -486,7 +490,7 @@ Date/time
 
 Examples of audited operations include product, category, supplier and purchase-related changes.
 
-🗄️ Database Design
+## Database Design
 
 --> Database name:
 StockManagementDB
@@ -533,11 +537,12 @@ AuditLogs ────────── System Activity History
 
 
 
-🧠 ADBMS Concepts Implemented
+#  ADBMS Concepts Implemented
 
 This project was specifically designed to demonstrate database concepts beyond basic CRUD.
 
-1. Primary Keys
+
+### 1. Primary Keys
 
 Each major table uses a unique primary key, such as:
 
@@ -554,7 +559,7 @@ PurchaseId
 SaleId
 
 
-2. Foreign Keys
+### 2. Foreign Keys
 
 Relationships are maintained using foreign keys.
 
@@ -575,14 +580,14 @@ SaleDetails.SaleId → Sales.Id
 SaleDetails.ProductId → Products.Id
 
 
-3. Referential Integrity
+### 3. Referential Integrity
 
 Foreign-key relationships protect data consistency and prevent invalid references.
 
 Purchase and sale detail records use cascading behavior with their parent transaction records where appropriate.
 
 
-4. Unique Constraints & Indexes
+### 4. Unique Constraints & Indexes
 
 The database uses unique constraints and indexes for faster and safer data access.
 
@@ -610,7 +615,7 @@ Purchase date searches
 Stock transaction history
 
 
-5. Database Transactions
+### 5. Database Transactions
 
 Purchase and sales processing use transaction-based operations.
 
@@ -635,7 +640,7 @@ ROLLBACK
 This helps prevent incomplete updates.
 
 
-6. Database Views
+### 6. Database Views
 
 The database provides reusable views:
 
@@ -648,7 +653,7 @@ vw_PurchaseSummary
 These views simplify reporting queries and provide a reusable database layer.
 
 
-7. Stored Procedures
+### 7. Stored Procedures
 
 The project includes stored procedures such as:
 
@@ -661,7 +666,7 @@ sp_RecordStockTransaction
 These demonstrate server-side procedural database logic.
 
 
-8. User-Defined Functions
+### 8. User-Defined Functions
 
 The database includes:
 
@@ -672,7 +677,7 @@ fn_LowStockProducts
 These demonstrate both scalar and table-valued SQL functions.
 
 
-9. Database Triggers
+### 9. Database Triggers
 
 The project includes triggers:
 
@@ -685,12 +690,12 @@ These triggers automatically create stock transaction records when purchase or s
 This also demonstrates how database-level automation can complement application-level business logic.
 
 
-10. Decimal Precision
+### 10. Decimal Precision
 
 Financial values such as purchase costs, selling prices and totals use decimal precision suitable for monetary calculations.
 
 
-🔄 Complete Business Workflow
+## Complete Business Workflow
 
                     ┌───────────────┐
                     │     Login     │
@@ -718,7 +723,7 @@ Financial values such as purchase costs, selling prices and totals use decimal p
                                        ↓
                                   Audit Logs
 
-🔒 Security & Validation
+## Security & Validation
 
 The application includes:
 
@@ -737,7 +742,7 @@ Access-denied handling
 
 Security note: Do not commit real production credentials, passwords, API keys or private connection strings to GitHub.
 
-🎨 UI / Design
+## UI / Design
 
 The interface is built with Bootstrap 5, Bootstrap Icons, Razor Views and custom CSS.
 
@@ -758,7 +763,7 @@ wwwroot/css/site.css
 
 wwwroot/js/site.js
 
-📁 Project Structure
+# Project Structure
 
 ADBMS_STOCKMANAGEMENT_PROJECT/
 
@@ -876,13 +881,13 @@ SQL Server Management Studio (SSMS)
 
 Visual Studio 2022 or VS Code
 
-1️⃣ Clone the Repository
+### Clone the Repository
 
 git clone YOUR_GITHUB_REPOSITORY_URL
 
 cd ADBMS_STOCKMANAGEMENT_PROJECT
 
-2️⃣ Configure SQL Server
+### Configure SQL Server
 
 Open:
 
@@ -902,7 +907,7 @@ TrustServerCertificate=True;
 
 MultipleActiveResultSets=true
 
-3️⃣ Database Setup
+### Database Setup
 
 The repository contains:
 
@@ -914,7 +919,7 @@ You can execute the database scripts using SQL Server Management Studio.
 
 The application also contains an initializer that creates the database and inserts demo data when the database is initialized through the application.
 
-4️⃣ Run the Application
+### Run the Application
 
 Open a terminal in:
 
@@ -930,7 +935,7 @@ dotnet run
 
 Then open the local URL shown in the terminal.
 
-👤 Demo Accounts
+### Demo Accounts
 
 The development database initializer provides demo accounts:
 
@@ -957,7 +962,7 @@ Staff@12345
 
 These credentials are for local/demo use only. Change or remove them before deploying the application publicly.
 
-🚀 Future Enhancements
+# Future Enhancements
 
 Possible future improvements include:
 
@@ -986,7 +991,8 @@ Automated testing
 REST API integration
 
 
-🎓 Academic Learning Outcomes
+
+# Academic Learning Outcomes
 
 This project demonstrates practical understanding of:
 
@@ -1023,13 +1029,14 @@ ASP.NET Core MVC
 Authentication and authorization
 
 
-📌 Project Summary
+
+## Project Summary
 
 ADBMS Stock Management System demonstrates how a relational database can power a complete business-oriented web application.
 
 The project connects frontend UI → MVC controllers → Entity Framework Core → SQL Server and applies advanced database techniques to real inventory workflows such as purchasing, selling, stock tracking, reporting and auditing.
 
-⭐ Technologies at a Glance
+### Technologies at a Glance
 
 C#
 
